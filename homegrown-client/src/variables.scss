@@ -1,0 +1,28 @@
+$primary-color: rgb(255, 160, 17);
+$primary-color-dark: rgb(180, 118, 25);
+
+$bad-color: rgb(165, 24, 24);
+$error-color: rgb(0, 221, 221);
+
+
+
+$tertiary-color: rgb(109, 255, 42);
+
+$quarternary-color: rgb(159, 42, 255);
+
+$dark-color1: rgb(15,15,15);
+$dark-color2: rgb(22, 22, 22);
+$dark-color3: rgb(29, 29, 29);
+$dark-color4: rgb(36, 36, 36);
+$dark-color5: rgb(43, 43, 43);
+
+@mixin desktop {
+    @media screen and (min-width: 769px) {
+        @content
+    }
+};
+@mixin tablet {
+    @media screen and (min-width: 512px) {
+        @content;
+    }
+}

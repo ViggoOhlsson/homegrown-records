@@ -1,0 +1,2 @@
+export const lilFingyThumb = "https://cdn.discordapp.com/attachments/971031872014524456/1020172155549384754/Cover_Art_png_2.png"
+export const quartersThumb = "https://cdn.discordapp.com/attachments/971031872014524456/971046917792497694/unknown.png"
