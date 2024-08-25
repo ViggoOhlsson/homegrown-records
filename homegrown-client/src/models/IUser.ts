@@ -8,5 +8,5 @@ export default interface IUser {
     profile_picture_url: string
     credits: number
     email:string
-    isAdmin: string
+    isAdmin: boolean
 }

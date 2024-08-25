@@ -14,7 +14,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="section-square">
+    <router-link :to="{name: 'store'}" class="section-square">
         <div class="content">
             <div class="image">
                 <img :src="image" alt="">
@@ -26,11 +26,12 @@ export default defineComponent({
                 <i class="fa-solid fa-arrow-right title-arrow"></i>
             </div>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <style lang="scss">
     .section-square {
+        text-decoration: none;
         cursor: pointer;
         i {
             display: none;

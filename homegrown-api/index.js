@@ -52,6 +52,10 @@ app.use(async (req, res, next) => {
     next()
 })
 
+app.get("/amog", async (req, res) => {
+    res.send("amognos")
+})
+
 //Integrate Routes
 fs.readdir("./routes", (err, files) => {
     if (err) return console.error(err)
@@ -64,5 +68,4 @@ fs.readdir("./routes", (err, files) => {
 })
 
 app.listen(port, () => {
-    
 })

@@ -9,11 +9,13 @@ import TextTitle from '@/components/globals/text/TextTitle.vue'
 import useUserService from '@/services/useUserService'
 import { defineComponent, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import useUser from "@/stores/useUser"
 
 export default defineComponent({
 	components: { FormSection, TextInput, TextTitle, PrimaryButton, FormRow, Text, SecondaryButton },
     setup() {
         const route = useRoute()
+        const user = useUser()
 
         const username = ref("")
         const firstname = ref("")
@@ -25,10 +27,17 @@ export default defineComponent({
         const { register, login } = useUserService()
 
         const onLogin = async () => {
-            await login({
-                username: username.value,
-                password: password.value,
-            })
+            try {
+                const loginResult = await login({
+                    username: username.value,
+                    password: password.value,
+                })
+
+                user.data = loginResult
+            } catch (err) {
+                console.error(err)
+            } 
+
         }
 
         const onRegister = async () => {

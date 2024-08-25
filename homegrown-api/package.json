@@ -6,8 +6,7 @@
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.8.3",
-    "heroku": "heroku local web"
+    "mongoose": "^6.8.3"
   },
   "name": "homegrown-api",
   "version": "1.0.0",
