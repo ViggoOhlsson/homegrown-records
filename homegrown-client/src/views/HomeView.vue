@@ -22,8 +22,8 @@
 <template>
 	<div class="home">
 		<div class="section-container">
-			<SectionSquare :image="'/public/vinyl-section.png'">Music</SectionSquare>
-			<SectionSquare :image="'/public/equipment-section.png'">Equipment</SectionSquare>
+			<SectionSquare :image="'https://earnest-kashata-ebaa1c.netlify.app/vinyl-section.png'">Music</SectionSquare>
+			<SectionSquare :image="'https://earnest-kashata-ebaa1c.netlify.app/equipment-section.png'">Equipment</SectionSquare>
 		</div>
 	</div>
 </template>

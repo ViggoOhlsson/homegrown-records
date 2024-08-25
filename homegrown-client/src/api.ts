@@ -11,7 +11,7 @@ export const defaultAdminUser: IUser = {
     lastname: "Doe",
     fullname: "John Doe",
     isAdmin: true,
-    profile_picture_url: "http://localhost:8080/public/pfp.jpg",
+    profile_picture_url: "https://earnest-kashata-ebaa1c.netlify.app/pfp.jpg",
     registeredOn: new Date()
 }
 
@@ -20,7 +20,7 @@ export const exampleStoreItems:IStoreItem[] = [{
     title: "King Gizzard & The Lizard Wizard - Quarters!",
     costUSD: 24.95,
     costSEK: 249.95,
-    thumbnail: "http://localhost:8080/public/kglw-quarters.jpg",
+    thumbnail: "https://earnest-kashata-ebaa1c.netlify.app/kglw-quarters.jpg",
     type: "Vinyl",
     category: "LP",
     dateAdded: new Date(),
@@ -41,7 +41,7 @@ export const exampleStoreItems:IStoreItem[] = [{
     _id: "66586781ab85c1528db170a4",
     title: "The Beatles - Abbey Road",
     costUSD: 19.95,
-    thumbnail: "http://localhost:8080/public/the_beatles-abbey_road.jpg",
+    thumbnail: "https://earnest-kashata-ebaa1c.netlify.app/the_beatles-abbey_road.jpg",
     type: "Vinyl",
     category: "LP",
     dateAdded: new Date(),
