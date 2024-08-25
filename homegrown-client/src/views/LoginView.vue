@@ -8,13 +8,14 @@ import Text from '@/components/globals/text/Text.vue'
 import TextTitle from '@/components/globals/text/TextTitle.vue'
 import useUserService from '@/services/useUserService'
 import { defineComponent, onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import useUser from "@/stores/useUser"
 
 export default defineComponent({
 	components: { FormSection, TextInput, TextTitle, PrimaryButton, FormRow, Text, SecondaryButton },
     setup() {
         const route = useRoute()
+        const router = useRouter()
         const user = useUser()
 
         const username = ref("")
@@ -34,9 +35,11 @@ export default defineComponent({
                 })
 
                 user.data = loginResult
+                router.push({name:"store"})
             } catch (err) {
                 console.error(err)
             } 
+
 
         }
 
@@ -139,7 +142,7 @@ export default defineComponent({
                     <TextInput type="password" v-model="password"></TextInput>
                 </FormSection>
                 <FormSection>
-                    <PrimaryButton @click="onRegister">Log In</PrimaryButton>
+                    <PrimaryButton @click="onLogin">Log In</PrimaryButton>
                 </FormSection>
                 <FormSection :padding="false">
                     <Text dim bold center>Or</Text>

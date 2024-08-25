@@ -56,9 +56,9 @@ export default defineComponent({
         <div class="grid-buttons-container">
             <GridStyleButtons v-model="mobileGridColumns"></GridStyleButtons>
         </div>
-        <div class="no-items-found" v-if="storeItemsMessage === ''">
+        <!-- <div class="no-items-found" v-if="storeItemsMessage === ''">
             <TextTitle :em="1.2" bold>{{storeItemsMessage}}</TextTitle>
-        </div>
+        </div> -->
 	    <Loader fixed v-if="storeItemsMessage !== 'No Matches.' && !storeItems.length"></Loader>
         <div class="items-grid">
             <StoreItemSquare link v-for="item in storeItems" :item="item" :key="item._id"></StoreItemSquare>

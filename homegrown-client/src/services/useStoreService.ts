@@ -1,3 +1,4 @@
+import { exampleStoreItems } from "@/api"
 import type APIResponse from "@/models/APIResponse"
 import type IStoreFilter from "@/models/IStoreFilter"
 import type IStoreItem from "@/models/IStoreItem"
@@ -5,13 +6,18 @@ import { objectToQueryString } from "@/utils"
 import axios from "axios"
 export default () => {
     const getStoreItems = async (filter: IStoreFilter) => {
-        const query = objectToQueryString(filter)
-        let res = await axios.get<APIResponse<IStoreItem[]>>(`${import.meta.env.VITE_API_URL}/api/get-store-items${query}`)
-        return res.data
+        return {
+            content: exampleStoreItems
+        }
+        // const query = objectToQueryString(filter)
+        // let res = await axios.get<APIResponse<IStoreItem[]>>(`${import.meta.env.VITE_API_URL}/api/get-store-items${query}`)
+        // return res.data
     }
-    const getStoreItem = async (_id:string) => {
-        let res = await axios.get<APIResponse<IStoreItem>>(`${import.meta.env.VITE_API_URL}/api/get-store-item/${_id}`)
-        return res.data.content
+    const getStoreItem = async (_id:string): Promise<IStoreItem> => {
+        const storeItem = exampleStoreItems.find(item => item._id == _id)
+        return storeItem
+        // let res = await axios.get<APIResponse<IStoreItem>>(`${import.meta.env.VITE_API_URL}/api/get-store-item/${_id}`)
+        // return res.data.content
     }
     // removes and adds in the same function, returns new wishlist
     const setToWishlist = async (_id:string) => {

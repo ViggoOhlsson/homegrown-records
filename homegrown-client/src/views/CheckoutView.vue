@@ -27,7 +27,6 @@ export default defineComponent({
         </div>
         <div class="info-container">
             INPUT INFO HERE
-            <img src="/public/okayegpay.png" alt="">
         </div>
     </div>    
 </template>
