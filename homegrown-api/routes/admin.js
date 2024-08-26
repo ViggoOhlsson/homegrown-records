@@ -3,6 +3,7 @@ const StoreItemModel = require("../models/StoreItemModel")
 const router = express.Router()
 const {sendDelay} = require("../utils")
 const fs = require("fs")
+const sharp = require("sharp")
 
 router.post("/authorize", async (req,res) => {
     const user = await res.locals.user()
@@ -27,12 +28,21 @@ router.post("/authorize", async (req,res) => {
 
 router.post("/register-store-item", async (req, res) => {
     const { item } = req.body
+    const thumbnail = req.files?.thumbnail
+
+    if (!thumbnail) {
+        res.status(400).send("No Thumbnail Provided.")
+        return 
+    }
     const user = await res.locals.user()
 
     console.log("recieved item:", item)
     if (user.isAdmin !== true) {res.status(401).send({message: "Unauthorized."}); return}
 
     try {
+        const thumbnail256x = sharp({
+            
+        }) 
         const newStoreItem = new StoreItemModel({
             title: item.title,
             costUSD: item.costUSD,

@@ -46,7 +46,7 @@ export default defineComponent({
             </div>
         </div>
         <div class="title-container">
-            <Text ellipsis bold >{{$props.item.data.title || $props.item.title}}</Text>
+            <Text ellipsis bold >{{$props.item.title}}</Text>
         </div>
         <div class="cost-type">
             <TypeTag :type="$props.item.type" />

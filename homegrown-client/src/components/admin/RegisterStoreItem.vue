@@ -13,7 +13,6 @@ import PrimaryButton from '../globals/buttons/PrimaryButton.vue'
 import StoreItemFacts from '@/components/store/StoreItemFacts.vue'
 import useAdminService from '@/services/useAdminService'
 import { useRouter } from 'vue-router'
-import {exampleStoreItems} from "@/api"
 
 export default defineComponent({
 	components: { 
@@ -61,14 +60,12 @@ export default defineComponent({
                 releaseYear: releaseYear.value,
             },
             dateAdded: new Date(),
-            _id: "65148681fe750175c9c08c8f" //temporär fix, ta bort senare
+            _id: ""
         }})
 
         const onSubmit = async () => {
-            // let res = await registerStoreItem(storeItemPreview.value)
-            exampleStoreItems.push(storeItemPreview.value)
-
-            router.push({name: 'store-item', params: {id: storeItemPreview.value._id}})
+            let res = await registerStoreItem(storeItemPreview.value)
+            res.content ? router.push({name: 'store-item', params: {id: res.content._id}}) : null
         }
         
         return {

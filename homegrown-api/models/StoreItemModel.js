@@ -28,7 +28,7 @@ const StoreItemModel = model("store_items", StoreItemSchema)
 
 StoreItemModel.createIndexes({
     title: "text",
-    default_language: "english"
+    default_language: "english",
 }, err => err && console.log("error:", err))
 
 module.exports = StoreItemModel

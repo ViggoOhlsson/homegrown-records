@@ -21,6 +21,7 @@ export default defineComponent({
         const storeItems = ref<IStoreItem[]>([])
         const storeItemsMessage = ref("")
         const filter = ref<IStoreFilter>({})
+        const noItemsFound = ref(false)
         const mobileGridColumns = ref(parseInt(localStorage.getItem("mobile-grid-columns") || "2"))
         watch(mobileGridColumns, (newVal) => localStorage.setItem("mobile-grid-columns", newVal.toString()))
 
@@ -30,6 +31,8 @@ export default defineComponent({
         })
         const fetchStoreItems = useDebounce(async () => {
             const res = await getStoreItems(filter.value)
+            console.log(res.content)
+            if (!res.content.length) noItemsFound.value = true
             storeItems.value = res.content
             storeItemsMessage.value = res.message || ""
         }, 500)
@@ -45,6 +48,7 @@ export default defineComponent({
             storeItemsMessage,
             filter,
             mobileGridColumns,
+            noItemsFound
         }
     },
 })
@@ -56,10 +60,10 @@ export default defineComponent({
         <div class="grid-buttons-container">
             <GridStyleButtons v-model="mobileGridColumns"></GridStyleButtons>
         </div>
-        <!-- <div class="no-items-found" v-if="storeItemsMessage === ''">
+        <!-- <div class="no-items-found" v-if="noItemsFound == true && storeItemsMessage !== 'Items fetched successfully'">
             <TextTitle :em="1.2" bold>{{storeItemsMessage}}</TextTitle>
         </div> -->
-	    <Loader fixed v-if="storeItemsMessage !== 'No Matches.' && !storeItems.length"></Loader>
+	    <Loader fixed v-if="!storeItems.length && noItemsFound == false"></Loader>
         <div class="items-grid">
             <StoreItemSquare link v-for="item in storeItems" :item="item" :key="item._id"></StoreItemSquare>
         </div>

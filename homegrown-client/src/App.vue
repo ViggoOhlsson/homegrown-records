@@ -16,7 +16,7 @@
 	    <RouterView />
     </main>
 
-    <span @click="API_CONN = !API_CONN" v-if="!API_CONN" class="api-conn-error-msg"><i class="fa-solid fa-warning"></i> Could not connect to API.</span>
+    <!-- <span @click="API_CONN = !API_CONN" v-if="!API_CONN" class="api-conn-error-msg"><i class="fa-solid fa-warning"></i> Could not connect to API.</span> -->
 
 </template>
 

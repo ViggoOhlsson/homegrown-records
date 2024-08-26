@@ -21,7 +21,7 @@ api.get("/get-store-items", async (req, res, next) => {
         ...(order === "Cost Lowest-Highest" ? {costUSD: 1} : null),
         ...(order === "Cost Highest-Lowest" ? {costUSD: -1} : null),
     }
-
+    console.log(sort, query)
     let storeItems = await StoreItemModel.find(query).sort(sort) || []
 
     if (storeItems.length === 0) {

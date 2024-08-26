@@ -15,10 +15,10 @@ export default defineStore("user", () => {
     const logUser = () => console.log("user:", data.value)
 
     onMounted(async () => {
-        // const validatedUser = await validateUser()
-        // validatedUser ? data.value = validatedUser : null
-        // if (!validatedUser) return
-        // wishlist.value = await getWishlistByUser(validatedUser._id)
+        const validatedUser = await validateUser()
+        validatedUser ? data.value = validatedUser : null
+        if (!validatedUser) return
+        wishlist.value = await getWishlistByUser(validatedUser._id)
 
     })
 

@@ -1,4 +1,3 @@
-import { defaultAdminUser } from "@/api"
 import type APIResponse from "@/models/APIResponse"
 import type IStoreItem from "@/models/IStoreItem"
 import type IUser from "@/models/IUser"
@@ -30,12 +29,8 @@ export default () => {
         return res.data
     }
     const login = async (user: ILoginObject) => {
-        
-        if (user.username == "admin" && user.password == "password") {
-            return defaultAdminUser
-        } else {
-            throw new Error("Incorrect Credentials.")
-        }
+        let res = await axios.post(`${import.meta.env.VITE_API_URL}/users/login`, user)
+        return res.data
     }
     const logout = async () => {
         let res = await  axios.get<APIResponse<Boolean>>(`${import.meta.env.VITE_API_URL}/users/logout`)

@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt")
 const crypto = require("crypto")
+import sharp from "sharp"
 
 const utils = {
     sendDelay: () => Math.floor(Math.random() * 400) + 200,
@@ -22,6 +23,9 @@ const utils = {
     // MODEL UTILS
     createUserWishlist: async (userId) => {
         
+    }
+    createThumbnailFromImageBuffer: async (buffer, height, width) => {
+        return await sharp(buffer)
     }
 }
 
